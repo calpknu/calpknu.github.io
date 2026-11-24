@@ -53,3 +53,11 @@
 2. Settings → Pages → Branch: `main`, 폴더: `/ (root)`로 설정합니다.
 3. 몇 분 뒤 `https://<계정>.github.io/<저장소>/`에서 열립니다.
 4. 도메인을 연결하면 `index.html`의 `canonical` 주석을 풀어 주세요.
+
+## 인수인계 (GitHub Organization `calpknu`)
+
+사이트는 GitHub Organization `calpknu`의 저장소 `calpknu.github.io`에 있고, https://calpknu.github.io/ 로 공개됩니다.
+
+- **관리 권한은 Owner 계정에 있습니다.** Organization → People → Invite member에서 다음 관리자의 GitHub 계정을 초대하고 역할을 **Owner**로 정하세요. 연락이 끊겨도 관리할 수 있도록 Owner는 항상 2명 이상 두세요.
+- **Contact email은 연락용일 뿐**이라 로그인·소유권과 관계없습니다. Organization → Settings → General에서 다음 관리자나 연구실 공용 이메일로 바꾸면 됩니다.
+- 졸업 등으로 빠지는 사람은 새 Owner를 추가한 **뒤에** 자신을 Owner에서 내려 주세요.
