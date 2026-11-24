@@ -1,0 +1,18 @@
+.taste-skill/
+shots/
+
+# 사진 폴더 안의 사진이 아닌 파일(회의록, 영수증, 발표자료 등)은 GitHub에 올리지 않음
+assets/img/gallery/**/*
+!assets/img/gallery/**/
+!assets/img/gallery/**/*.jpg
+!assets/img/gallery/**/*.JPG
+!assets/img/gallery/**/*.jpeg
+!assets/img/gallery/**/*.JPEG
+!assets/img/gallery/**/*.png
+!assets/img/gallery/**/*.PNG
+desktop.ini
+
+# 작업 도구 폴더 (사이트에 필요 없음)
+.agents/
+.claude/
+skills-lock.json

@@ -1,0 +1,208 @@
+/* 연구실 사이트 전용 스타일 (assets/ 의 디자인 키트 위에 얹는 몇 줄) */
+
+/* 한글은 단어 단위로 줄바꿈 */
+:lang(ko) { word-break: keep-all; }
+
+/* 목록이 긴 섹션(과제·논문·특허·구성원·사진)은 내용만큼 길어짐 */
+main > section.section--long { height: auto; min-height: 100svh; }
+main > section.section--long > .wrap { height: auto; }
+
+/* 과제 섹션의 사진 */
+.develop { margin: 0; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 16 / 9; }
+.develop > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 1023px) { .develop { margin-top: var(--s-5); } }
+
+/* 과제 전체 목록: 분야별 세 칸 */
+.projects__all { margin-top: var(--s-9); }
+.pub-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-6); margin-top: var(--s-5); }
+.pub-groups h4 { margin: 0 0 var(--s-3); font: 500 var(--t-body)/1.4 var(--font-text); color: var(--muted); }
+@media (max-width: 1023px) { .pub-groups { grid-template-columns: minmax(0, 1fr); } }
+
+/* 논문·특허·과제 목록 */
+.pub { margin: 0; padding-left: 1.6em; }
+.pub > li { padding-block: var(--s-3); border-bottom: 1px solid var(--line); line-height: 1.6; break-inside: avoid; }
+.pub .t-label { display: inline-block; margin-left: var(--s-2); color: var(--action); }
+.ground-inverse .pub .t-label { color: var(--ink); }
+
+/* 목록 행의 둘째 줄 */
+.rows > li > p { grid-column: 1; margin: 0; color: var(--ink); }
+
+/* 지도교수 */
+.prof { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s-5); }
+.prof__photo { width: 118px; height: 148px; object-fit: cover; border-radius: var(--r-md); }
+.prof__bio { margin: var(--s-5) 0 var(--s-6); }
+.prof h3, .prof p { margin: 0; }
+.prof h3 { font-family: var(--font-display); }
+.people__photo { margin: 0; aspect-ratio: 4 / 3; }
+.areas { margin-top: var(--s-5); }
+
+/* 빈 사진 칸: 안에 <img>를 넣으면 칸을 채움 */
+.slot { aspect-ratio: 4 / 3; border-radius: var(--r-md); background: var(--p-surface); overflow: hidden; }
+.slot--portrait { aspect-ratio: 4 / 5; }
+.slot > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* 구성원: 작은 사진 왼쪽, 정보 오른쪽. 한 줄에 3명(태블릿 2명, 폰 1명) */
+.members { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-6) var(--s-5); margin-top: var(--s-5); }
+.member { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: var(--s-5); align-items: start; }
+.member__photo { width: 112px; }
+.member__info h4 { margin: 0 0 var(--s-1); font: 500 var(--t-card)/1.3 var(--font-display); }
+.member__info p { margin: 0; }
+.member__email { margin-top: var(--s-3) !important; overflow-wrap: anywhere; }
+.member__field { margin-top: var(--s-1) !important; }
+.members__alumni, .members__group { margin-top: var(--s-9); }
+#members .rows, .members__alumni + ul { margin-top: var(--s-5); }
+@media (max-width: 1023px) { .members { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 639px) { .members { grid-template-columns: minmax(0, 1fr); } }
+
+/* 사진: 행사별 앨범. 한 줄에 4장(태블릿 3장, 폰 2장) */
+.album { padding-block: var(--s-8); border-top: 1px solid var(--line); }
+.album:first-of-type { border-top: 0; padding-top: 0; }
+.album__head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-5); margin-bottom: var(--s-5); }
+.doc .album__head h2 { margin: 0; font: var(--display-weight) var(--t-h3)/1.25 var(--font-display); letter-spacing: var(--display-tracking); }
+.album__date { margin: 0; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.album__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-3); }
+a.slot { display: block; }
+a.slot > img { transition: transform .3s ease; }
+a.slot:hover > img { transform: scale(1.03); }
+@media (max-width: 1023px) { .album__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 639px) { .album__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* 연락처 페이지 */
+.doc { padding-top: calc(var(--nav) + var(--s-9)); padding-bottom: var(--s-10); min-height: 100svh; }
+.doc h1 { font: var(--display-weight) var(--t-h2)/1.1 var(--font-display); letter-spacing: var(--display-tracking); margin: 0 0 var(--s-5); }
+.doc h2 { margin: var(--s-9) 0 var(--s-5); font: var(--display-weight) var(--t-h3)/1.2 var(--font-display); }
+
+/* 태블릿·폰에서 섹션 높이 */
+@media (min-width: 640px) and (max-width: 1279px) { #research { --h: 2; } }
+@media (max-width: 639px) {
+  #research .panel { --p-h: 240px; }
+  #people { --hm: 2; }
+}
+.doc .btn-row { margin-top: var(--s-6); }
+.doc #en > p + .rows { margin-top: var(--s-6); }
+
+/* 서브페이지 머리말과 바닥글 */
+.doc__head { margin-bottom: var(--s-8); max-width: 62ch; }
+.doc__head h1 { font-size: var(--t-h1); }
+.doc .section-head { margin-bottom: var(--s-6); }
+.doc .section-head h2, .doc h2.sub-h { margin-top: 0; }
+.doc .grid + h2, .doc .card + h2 { margin-top: var(--s-10); }
+.site-footer { padding: var(--s-9) 0 var(--s-7); }
+.site-footer .footer__legal { margin-top: var(--s-8); }
+.doc--professor .grid { align-items: start; }
+
+/* 교수 페이지 */
+.doc--professor { padding-top: var(--nav); }
+.prof-band { padding: var(--s-10) 0 var(--s-9); color: var(--ink); background: var(--bg, var(--p-inv-bg)); }
+.prof-band__top { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--s-7); }
+.prof-band__text { max-width: 720px; }
+.prof-band__label { margin: 0 0 var(--s-4); color: var(--muted); }
+.prof-band h1 { margin: 0; font: var(--display-weight) var(--t-h1)/1.05 var(--font-display); letter-spacing: var(--display-tracking-xl); }
+.prof-band__sub { margin: var(--s-3) 0 0; font: var(--display-weight) var(--t-lead)/1.4 var(--font-display); color: var(--muted); }
+.prof-band__bio { margin: var(--s-6) 0 0; font-size: var(--t-lead); line-height: 1.6; }
+.prof-band__photo { flex: none; width: 118px; height: 148px; object-fit: cover; border-radius: var(--r-sm); }
+.prof-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5); margin: var(--s-9) 0 0; padding-top: var(--s-6); border-top: 1px solid var(--line); }
+.prof-facts div { margin: 0; }
+.prof-facts dt { font-size: var(--t-label); font-weight: 500; color: var(--muted); }
+.prof-facts dd { margin: var(--s-2) 0 0; font: var(--display-weight) var(--t-h3)/1.25 var(--font-display); letter-spacing: var(--display-tracking); }
+
+.cv { padding-top: var(--s-9); }
+.cv__row { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--s-5); padding-block: var(--s-8); border-top: 1px solid var(--line); }
+.cv__row:first-child { border-top: 0; padding-top: 0; }
+.doc .cv__label { margin: 0; font: var(--display-weight) var(--t-h3)/1.25 var(--font-display); letter-spacing: var(--display-tracking); }
+.cv__group { margin: 0 0 var(--s-3); font-size: var(--t-label); font-weight: 500; color: var(--muted); }
+.cv__group:not(:first-child) { margin-top: var(--s-7); }
+.cv__body .rows > li:last-child { border-bottom: 0; }
+.interests { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5); margin: 0; padding: 0; list-style: none; }
+.interests li { padding: var(--s-5) var(--s-5) var(--s-6); background: var(--p-surface); border-radius: var(--r-md); }
+.interests h3 { margin: 0 0 var(--s-2); font: 500 var(--t-card)/1.3 var(--font-display); }
+.interests p { margin: 0; color: var(--ink); }
+.cv__contact { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--s-5); margin: var(--s-4) 0 0; }
+.cv__contact > a { grid-column: 2; justify-self: start; }
+
+@media (max-width: 1023px) {
+  .cv__row, .cv__contact { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
+  .cv__contact > a { grid-column: 1; }
+  .interests { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 639px) {
+  .prof-band { padding: var(--s-8) 0 var(--s-7); }
+  .prof-band__top { flex-direction: column-reverse; align-items: flex-start; gap: var(--s-5); }
+  .prof-facts { grid-template-columns: minmax(0, 1fr); gap: var(--s-4); }
+  .interests { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* 연락처 */
+.contact__addr { font-style: normal; font-size: var(--t-lead); line-height: 1.6; }
+.contact__map { margin: var(--s-4) 0 0; }
+.doc--contact .cv__body > .link { font-size: var(--t-lead); }
+
+/* 과제: 진행 중(사진 카드 2열) + 수행한 과제(기간별 줄) */
+.projects-now { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-8) var(--s-5); }
+.project__media { aspect-ratio: 16 / 9; border-radius: var(--r-lg); overflow: hidden; background: var(--p-surface); }
+.project__media > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.project__period { margin: var(--s-5) 0 var(--s-2); font-size: var(--t-label); font-weight: 500; color: var(--action); font-variant-numeric: tabular-nums; }
+.project h3 { margin: 0 0 var(--s-2); font: 500 var(--t-card)/1.35 var(--font-display); }
+.project p:last-child { margin: 0; max-width: 52ch; }
+.doc h2.projects-done__h { margin-top: var(--s-10); }
+.projects-done { padding-top: var(--s-5); }
+.projects-done .cv__row { padding-block: var(--s-6); }
+.doc .projects-done .cv__label { font-variant-numeric: tabular-nums; }
+@media (max-width: 1023px) { .projects-now { grid-template-columns: minmax(0, 1fr); } }
+
+/* 홈: "과제 전체 보기" 링크 위 여백 */
+.projects__more { margin: var(--s-6) 0 0; }
+
+/* 사진: 연도 탭 (상단 메뉴처럼 지금 연도에 밑줄) */
+.year-nav { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-6); margin: 0 0 var(--s-8); border-bottom: 1px solid var(--line); }
+.year-nav a { position: relative; padding: var(--s-3) 0; font: 500 var(--t-body)/1.4 var(--font-text); font-variant-numeric: tabular-nums; color: var(--muted); text-decoration: none; }
+.year-nav a:hover { color: var(--ink); }
+.year-nav a[aria-current] { color: var(--ink); }
+.year-nav a[aria-current]::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--ink); }
+.year[hidden] { display: none; }
+.year .album { padding-block: var(--s-7); }
+.year .album:first-child { padding-top: 0; border-top: 0; }
+@media (max-width: 639px) { .year-nav { gap: 0 var(--s-5); } }
+
+/* 홈: 연구 주제·연구 환경 카드 — 사진과 설명 사이 여백 */
+.card--open > .panel + h3 { margin-top: var(--s-5); }
+.card--open > h3 + p { margin-top: var(--s-2); }
+/* 도표처럼 잘리면 안 되는 그림은 칸 안에 전체가 보이게 */
+.panel.panel--contain { background: #fff; }
+.panel.panel--contain > .frame__img { object-fit: contain; }
+/* 연구 환경 */
+.lab__lead { margin: var(--s-4) 0 0; max-width: 62ch; }
+#lab .section-head--row { align-items: end; }
+@media (min-width: 640px) and (max-width: 1023px) { #lab .grid > .span-3 { grid-column: span 6; } }
+@media (max-width: 639px) { #lab .grid > .span-3 { grid-column: 1 / -1; } }
+/* 연구 주제·연구 환경 카드: 설명 길이와 상관없이 사진 칸 높이를 같게 */
+.card--open > .panel { flex: 0 0 auto; height: var(--p-h); min-height: 0; }
+/* 과제 카드: 가로로 긴 그림은 잘리지 않게 전체 표시 */
+.project__media--contain { background: #fff; }
+.project__media--contain > img { object-fit: contain; }
+
+/* 홈: 진행 중인 과제 사진 슬라이드 */
+.slider { min-width: 0; }
+.slider__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+.slider__track::-webkit-scrollbar { display: none; }
+.slider__track:focus-visible { outline: 2px solid var(--action); outline-offset: 4px; }
+.slider__slide { flex: 0 0 100%; margin: 0; scroll-snap-align: start; }
+.slider__slide > img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #fff; border-radius: var(--r-lg); }
+.slider__slide > figcaption { margin-top: var(--s-3); font-size: var(--t-small); color: var(--muted); }
+.slider__nav { display: flex; align-items: center; justify-content: flex-end; gap: var(--s-3); margin-top: var(--s-3); }
+.slider__count { min-width: 3.5em; text-align: center; font-variant-numeric: tabular-nums; font-size: var(--t-small); color: var(--muted); }
+.slider__btn { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-strong); background: transparent; color: var(--ink); cursor: pointer; }
+.slider__btn:hover { background: var(--p-surface); }
+@media (prefers-reduced-motion: reduce) { .slider__track { scroll-behavior: auto; } }
+@media (max-width: 1023px) { .slider { margin-top: var(--s-5); } }
+
+/* 로고: 원형 엠블럼 (assets/img/cal-emblem.png, tools/make-logo-files.ps1 로 생성) */
+.nav__logo { gap: var(--s-2); }
+.nav__emblem { display: block; width: 36px; height: 36px; flex: none; }
+/* 어두운 바닥글 위에서는 엠블럼 안쪽 글자가 묻히지 않게 흰 원을 깔아 줌 */
+.ground-inverse .nav__emblem { background: #fff; border-radius: 50%; padding: 2px; }
+@media (max-width: 639px) { .nav__emblem { width: 32px; height: 32px; } }
+
+/* 테마: 강조색은 로고 파랑(각 페이지 :root의 --p-action), 로고 주황은 과제 기간에만.
+   로고 주황(#E6A74A)은 글자로 쓰면 대비가 부족해서 같은 계열의 진한 주황을 씁니다 */
+.project__period { color: #9A5713; }
